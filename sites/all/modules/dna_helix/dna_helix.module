@@ -1,0 +1,25 @@
+<?php
+
+  function dna_helix_menu(){
+    $items['dna_helix'] = array(
+      'title' => 'Let\'s Play Polymerase!',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('dna_form'),
+      'access callback' => TRUE,
+      'type' => MENU_NORMAL_ITEM,
+    );
+    return $items;
+  }
+
+  function dna_form(){
+    $form['user_strand'] = array(
+      '#title' => 'Strand',
+      '#type' => 'textfield',
+      '#description' => t('Enter a strand of DNA and we\'ll give you a corisponding strand'),
+    );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('submit'),
+    );
+    return $form;
+  }
