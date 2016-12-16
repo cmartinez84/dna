@@ -4,16 +4,22 @@
     $items['dna_helix'] = array(
       'title' => 'Let\'s Play Polymerase!',
       'page callback' => 'drupal_get_form',
-      'page arguments' => array('dna_form'),
+      'page arguments' => array('dna_helix_form'),
       'access callback' => TRUE,
       'type' => MENU_NORMAL_ITEM,
+    );
+    $items['dna_results'] = array(
+      'title' => 'The results are in...',
+      'page callback' => 'results',
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
     );
     return $items;
   }
 
-  function dna_form(){
+  function dna_helix_form(){
     $form['user_strand'] = array(
-      '#title' => 'Strand',
+      '#title' => 'strand',
       '#type' => 'textfield',
       '#description' => t('Enter a strand of DNA and we\'ll give you a corisponding strand'),
     );
@@ -23,3 +29,12 @@
     );
     return $form;
   }
+
+  function dna_helix_form_submit($form, &$form_state){
+    $_SESSION['results'] = $form_state['values']['user_strand'];
+    $form_state['redirect'] = 'dna_results';
+  }
+
+function results(){
+  return $_SESSION['results'];
+}
