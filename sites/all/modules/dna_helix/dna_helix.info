@@ -1,0 +1,7 @@
+name = DNA Helix
+description = This module will take a string of nucleotide letters and turn them into the corresponding match on the other side of the helix
+core = 7.x
+package = Chris's Custom Modules
+files[] = dna_helix.module
+files[] = dna_helix.test
+dependencies[] = simpletest

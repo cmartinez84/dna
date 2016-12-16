@@ -3,3 +3,5 @@ description = A module to load content from custom Article block with the power 
 core = 7.x
 package = Chris's Custom Modules
 files[] = ajaxarticle.module
+files[] = ajaxarticle.test
+dependencies[] = simpletest
