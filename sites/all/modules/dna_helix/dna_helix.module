@@ -35,6 +35,26 @@
     $form_state['redirect'] = 'dna_results';
   }
 
-function results(){
-  return $_SESSION['results'];
-}
+  function transform_strand($strand){
+    $output = "";
+    $strand = str_split(strtoupper($strand));
+    foreach ($strand as $key => $value) {
+      if($value == "A"){
+        $output .= "T";
+      }
+      elseif($value == "T"){
+        $output .= "A";
+      }
+      elseif($value == "G"){
+        $output .= "C";
+      }
+      elseif ($value =="C") {
+        $output .= "G";
+      }
+    }
+    return $output;
+  }
+
+  function results(){
+      return $_SESSION['results'];
+  }
