@@ -1,5 +1,5 @@
-name = Ajax-article
+name = Ajax Article
 description = A module to load content from custom Article block with the power of AJAX
 core = 7.x
 package = Chris's Custom Modules
-files[] = ajax-article.module
+files[] = ajaxarticle.module
