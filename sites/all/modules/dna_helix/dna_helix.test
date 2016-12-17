@@ -1,10 +1,7 @@
 <?php
 
 
-
-
 class DnaHelixUnitTest extends DrupalUnitTestCase {
-
 
   public static function getInfo() {
     return array(
@@ -19,7 +16,6 @@ class DnaHelixUnitTest extends DrupalUnitTestCase {
     drupal_load('module', 'dna_helix');
     parent::setUp();
   }
-
 
   public function testDNAHelixReplicationSingleLetter() {
       $result = transform_strand("A");
@@ -39,6 +35,43 @@ class DnaHelixUnitTest extends DrupalUnitTestCase {
       $result = transform_strand('ATCG');
       $this->assertEqual($result, 'TAGC');
     }
+}
 
+class DNAHelixFormValidationTest extends DrupalWebTestCase {
 
-  }
+      public static function getInfo() {
+          return array(
+              'name' => 'DNA Helix Form Validation Test',
+              'description' => 'Tests for the DNA Helix Validation.',
+              'group' => 'Chris\'s Tests',
+          );
+      }
+
+      public function setUp() {
+          parent::setUp(array('dna_helix'));
+      }
+
+      public function testDNAelixFormvalidationInvalid(){
+        $this->drupalGet('dna_helix');
+
+        $this->assertText("Play Polymerase!", 'Form displayed!');
+
+        $form['user_strand'] = "mama mia";
+
+        $this->drupalPost('dna_helix', $form, t('submit'));
+
+        $this->assertText('Human DNA is only made up of four nucleotides, represented by the letters A, T, C, and G. Please enter a string only containing these letters', "error displayed!!");
+      }
+      public function testDNAelixFormvalidationValid(){
+        $this->drupalGet('dna_helix');
+
+        $this->assertText("Play Polymerase!", 'Form displayed!');
+
+        $form['user_strand'] = "AAA";
+
+        $this->drupalPost('dna_helix', $form, t('submit'));
+
+        $this->assertText('TTT', "Successfuly Displays valid results!");
+      }
+
+}

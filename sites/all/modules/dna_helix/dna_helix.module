@@ -22,6 +22,7 @@
       '#title' => 'strand',
       '#type' => 'textfield',
       '#description' => t('Enter a strand of DNA and we\'ll give you a corisponding strand'),
+      '#element_validate' => array('element_validate_accepted_chars'),
     );
     $form['submit'] = array(
       '#type' => 'submit',
@@ -29,9 +30,20 @@
     );
     return $form;
   }
+  function element_validate_accepted_chars($element){
+    $accepted_chars = ["A", "T", "C", "G"];
+    $strand_array = str_split(strtoupper($element['#value']));
+    foreach($strand_array as $letter){
+      if(!in_array($letter, $accepted_chars)){
+        form_error($element, t('Human DNA is only made up of four nucleotides, represented by the letters A, T, C, and G. Please enter a string only containing these letters.'));
+        break;
+      }
+    }
+  }
 
   function dna_helix_form_submit($form, &$form_state){
-    $_SESSION['results'] = $form_state['values']['user_strand'];
+    $strand = $form_state['values']['user_strand'];
+    $_SESSION['results'] = transform_strand($strand);
     $form_state['redirect'] = 'dna_results';
   }
 
