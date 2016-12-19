@@ -1,123 +1,52 @@
+# _DNA Replication
 
-CONTENTS OF THIS FILE
----------------------
+#### _Epicodus Code Review, Week 20, AJAX and Drupal Testing 7.52_
 
- * About Drupal
- * Configuration and features
- * Installation profiles
- * Appearance
- * Developing for Drupal
+#### By _**Chris Martinez**_
 
-ABOUT DRUPAL
-------------
+## Description
+_This app provides an example of AJAX in Drupal, an function to output a matching strand of DNA with for a valid, given input, and a tests for functionality._
 
-Drupal is an open source content management platform supporting a variety of
-websites ranging from personal weblogs to large community-driven websites. For
-more information, see the Drupal website at http://drupal.org/, and join the
-Drupal community at http://drupal.org/community.
 
-Legal information about Drupal:
- * Know your rights when using Drupal:
-   See LICENSE.txt in the same directory as this document.
- * Learn about the Drupal trademark and logo policy:
-   http://drupal.com/trademark
+## Specifications
+for DNA/ "Let's Play Polyamerase"
+The letters A, T, C, and G will be matched with T, A, C, and G respectively.
+https://en.wikipedia.org/wiki/DNA_replication
+| Behavior | Input Ex. | Output Ex. |
+| --- | --- | --- |
+|Input a letter to represent a DNA nucleotide: A,T, C, G| enter number|number entered|
+|Output matches each matches each nucleotide with its corresponding letter|ATCG|TACG|
+|Only A,T,C, and G are accepted| B-) | form will not submit|
 
-CONFIGURATION AND FEATURES
---------------------------
 
-Drupal core (what you get when you download and extract a drupal-x.y.tar.gz or
-drupal-x.y.zip file from http://drupal.org/project/drupal) has what you need to
-get started with your website. It includes several modules (extensions that add
-functionality) for common website features, such as managing content, user
-accounts, image uploading, and search. Core comes with many options that allow
-site-specific configuration. In addition to the core modules, there are
-thousands of contributed modules (for functionality not included with Drupal
-core) available for download.
+## Setup/Installation Requirements
+* _Clone this repository to your desktop_
+(https://github.com/cmartinez84/dna)
+* _Open MAMP and go to Preferences> Webserver>Document Root and navigate to the root folder of dna
+* _From your server home page, got to PHPmyadmin>Import> and select the database from dna/sites/db_backup (this may take several minutes)_
+# _You will need to create a to authenticate the database for use in the project. After the database has been imported, click on the database. Then go to privileges and create a user with the name "dna" and password "dna"._
+# _To begin using the site, go to localhost:8889_
+* _Log in with user name "dna" and password "dna" for admin privileges_
+* _Click on "dna" in the navigation area and enter some values*
 
-More about configuration:
- * Install, upgrade, and maintain Drupal:
-   See INSTALL.txt and UPGRADE.txt in the same directory as this document.
- * Learn about how to use Drupal to create your site:
-   http://drupal.org/documentation
- * Download contributed modules to sites/all/modules to extend Drupal's
-   functionality:
-   http://drupal.org/project/modules
- * See also: "Developing for Drupal" for writing your own modules, below.
 
-INSTALLATION PROFILES
----------------------
 
-Installation profiles define additional steps (such as enabling modules,
-defining content types, etc.) that run after the base installation provided
-by core when Drupal is first installed. There are two basic installation
-profiles provided with Drupal core.
+## Known Bugs
+_None yet_
 
-Installation profiles from the Drupal community modify the installation process
-to provide a website for a specific use case, such as a CMS for media
-publishers, a web-based project tracking tool, or a full-fledged CRM for
-non-profit organizations raising money and accepting donations. They can be
-distributed as bare installation profiles or as "distributions". Distributions
-include Drupal core, the installation profile, and all other required
-extensions, such as contributed and custom modules, themes, and third-party
-libraries. Bare installation profiles require you to download Drupal Core and
-the required extensions separately; place the downloaded profile in the
-/profiles directory before you start the installation process. Note that the
-contents of this directory may be overwritten during updates of Drupal core;
-it is advised to keep code backups or use a version control system.
+## Support and contact details
+_cardamomclouds@yahoo.com_
 
-Additionally, modules and themes may be placed inside subdirectories in a
-specific installation profile such as profiles/your_site_profile/modules and
-profiles/your_site_profile/themes respectively to restrict their usage to only
-sites that were installed with that specific profile.
+## Technologies Used
+_php_
+_javascript_
+_html_
+_css_
+_MAMP_
+_Drupal 7.52_
 
-More about installation profiles and distributions:
- * Read about the difference between installation profiles and distributions:
-   http://drupal.org/node/1089736
- * Download contributed installation profiles and distributions:
-   http://drupal.org/project/distributions
- * Develop your own installation profile or distribution:
-   http://drupal.org/developing/distributions
 
-APPEARANCE
-----------
+### License
+The MIT License (MIT)
 
-In Drupal, the appearance of your site is set by the theme (themes are
-extensions that set fonts, colors, and layout). Drupal core comes with several
-themes. More themes are available for download, and you can also create your own
-custom theme.
-
-More about themes:
- * Download contributed themes to sites/all/themes to modify Drupal's
-   appearance:
-   http://drupal.org/project/themes
- * Develop your own theme:
-   http://drupal.org/documentation/theme
-
-DEVELOPING FOR DRUPAL
----------------------
-
-Drupal contains an extensive API that allows you to add to and modify the
-functionality of your site. The API consists of "hooks", which allow modules to
-react to system events and customize Drupal's behavior, and functions that
-standardize common operations such as database queries and form generation. The
-flexible hook architecture means that you should never need to directly modify
-the files that come with Drupal core to achieve the functionality you want;
-instead, functionality modifications take the form of modules.
-
-When you need new functionality for your Drupal site, search for existing
-contributed modules. If you find a module that matches except for a bug or an
-additional needed feature, change the module and contribute your improvements
-back to the project in the form of a "patch". Create new custom modules only
-when nothing existing comes close to what you need.
-
-More about developing:
- * Search for existing contributed modules:
-   http://drupal.org/project/modules
- * Contribute a patch:
-   http://drupal.org/patch/submit
- * Develop your own module:
-   http://drupal.org/developing/modules
- * Follow best practices:
-   http://drupal.org/best-practices
- * Refer to the API documentation:
-   http://api.drupal.org/api/drupal/7
+Copyright (c) 2016 **_Chris Martinez_**
